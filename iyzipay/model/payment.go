@@ -1,15 +1,23 @@
 package model
 
-type PaymentAuthRequest struct {
-	Price          float64 `json:"price"`
-	ConversationId string  `json:"conversationId"`
-	ApiKey         string  `json:"apiKey"`
-	SecretKey      string  `json:"secretKey"`
-}
+import (
+	"strconv"
+)
 
 type PaymentRetrieveRequest struct {
 	PaymentId             int64  `json:"paymentId"`
 	PaymentConversationId string `json:"paymentConversationId"`
+	Locale                string `json:"locale"`
+	ConversationId        string `json:"conversationId"`
+}
+
+func (paymentRetrieveRequest PaymentRetrieveRequest) ToPKIRequest() string {
+	//TODO: atanmamıs degerler ???
+	//TODO: farklı bir sekilde concat ???
+	return "[conversationId=" + paymentRetrieveRequest.ConversationId +
+		//",locale=" + paymentRetrieveRequest.Locale +
+		",paymentId=" + strconv.FormatInt(paymentRetrieveRequest.PaymentId, 10) +
+		",paymentConversationId=" + paymentRetrieveRequest.PaymentConversationId + "]"
 }
 
 type PaymentRetrieveResponse struct {
