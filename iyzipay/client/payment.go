@@ -5,6 +5,7 @@ import (
 	b64 "encoding/base64"
 	"github.com/go-resty/resty"
 	"iyzipay-go/iyzipay/model"
+	. "iyzipay-go/iyzipay/util"
 )
 
 func PaymentRetrieve(paymentRetrieveRequest model.PaymentRetrieveRequest, options model.Options) model.PaymentRetrieveResponse {
@@ -21,7 +22,7 @@ func PaymentRetrieve(paymentRetrieveRequest model.PaymentRetrieveRequest, option
 }
 
 func httpHeaders(paymentRetrieveRequest model.PaymentRetrieveRequest, options model.Options) map[string]string {
-	random := "123456"
+	random := RandomAlphanumeric(8)
 	headers := make(map[string]string)
 	headers["x-iyzi-client-version"] = "iyzipay-go-1.0.0"
 	headers["Content-Type"] = "application/json"

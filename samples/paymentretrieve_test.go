@@ -12,7 +12,6 @@ func TestPaymentAuth(t *testing.T) {
 	options := samples.RetrieveOptions()
 	request := model.PaymentRetrieveRequest{PaymentConversationId: "123456", PaymentId: "1", ConversationId: "conversationId", Locale: "tr"}
 
-	//println(request.ToPKIRequest())
 	result := client.PaymentRetrieve(request, options)
 	assert.Equal(t, "TEST2", result)
 }
