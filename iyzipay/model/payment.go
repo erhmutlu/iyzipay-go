@@ -23,11 +23,12 @@ func (paymentRetrieveRequest PaymentRetrieveRequest) ToPKIRequest() string {
 }
 
 type PaymentRetrieveResponse struct {
-	Status      string `json:"status"`
-	Locale      string `json:"locale"`
-	SystemTime  int64  `json:"systemTime"`
-	PaymentInfo PaymentInfo
+	*Meta
 }
 
-type PaymentInfo struct {
+type Meta struct {
+	Status       string `json:"status"`
+	ErrorMessage string `json:"errorMessage"`
+	Locale       string `json:"locale"`
+	SystemTime   int64  `json:"systemTime"`
 }

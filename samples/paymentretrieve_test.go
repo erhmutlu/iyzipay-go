@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-func TestPaymentAuth(t *testing.T) {
+func TestPaymentRetrieve(t *testing.T) {
 	options := samples.RetrieveOptions()
 	request := model.PaymentRetrieveRequest{PaymentConversationId: "123456", PaymentId: "1", ConversationId: "conversationId", Locale: "tr"}
 
