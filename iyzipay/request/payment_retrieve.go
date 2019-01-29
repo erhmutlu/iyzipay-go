@@ -1,4 +1,4 @@
-package model
+package request
 
 import (
 	. "iyzipay-go/iyzipay/security"

@@ -1,5 +1,9 @@
 package security
 
+import (
+	"reflect"
+)
+
 type PKIRequest struct {
 	value string
 }
@@ -15,6 +19,26 @@ func (pkiRequest PKIRequest) Append(key string, value string) PKIRequest {
 			pkiRequest.value += tmp
 		}
 	}
+	return pkiRequest
+}
+
+func (pkiRequest PKIRequest) AppendSlice(key string, pkiRequestItems interface{}) PKIRequest {
+	//TODO: bu kısmı util'e çıkabiliriz
+	switch reflect.TypeOf(pkiRequestItems).Kind() {
+	case reflect.Slice:
+		s := reflect.ValueOf(pkiRequestItems)
+
+		for i := 0; i < s.Len(); i++ {
+			item := s.Index(i)
+			methodVal := item.MethodByName("ToPKIRequest")
+			methodIface := methodVal.Interface()
+			method := methodIface.(func() string)
+
+			//TODO: not finished implementation
+			method()
+		}
+	}
+
 	return pkiRequest
 }
 
