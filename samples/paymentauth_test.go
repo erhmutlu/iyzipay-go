@@ -3,6 +3,7 @@ package samples_test
 import (
 	"iyzipay-go/iyzipay/model"
 	"iyzipay-go/iyzipay/request"
+	"math/big"
 	"testing"
 )
 
@@ -11,7 +12,7 @@ func TestPaymentAuth(t *testing.T) {
 	request := request.PaymentAuthRequest{}
 	request.Locale = "tr"
 	request.ConversationId = "123456789"
-	request.Price = 1.1
+	request.Price = 1.0
 	request.PaidPrice = 1.2
 	request.Currency = "TRY" //TODO: structa çıkılabilir
 	request.Installment = 1
@@ -19,9 +20,9 @@ func TestPaymentAuth(t *testing.T) {
 	request.PaymentChannel = "WEB" //TODO: structa çıkılabilir
 	request.PaymentGroup = "PRODUCT" //TODO: structa çıkılabilir
 
-	basketItem1 := model.BasketItem{Id: "BI101", Name: "Binocular", Category1: "Collectibles", Category2: "Accessories", ItemType: "PHYSICAL", Price: 0.3 }
-	basketItem2 := model.BasketItem{Id: "BI102", Name: "Game code", Category1: "Game", Category2: "Online Game Items", ItemType: "VIRTUAL", Price: 0.5 }
-	basketItem3 := model.BasketItem{Id: "BI103", Name: "Usb", Category1: "Electronics", Category2: "Usb / Cable", ItemType: "PHYSICAL", Price: 0.2 }
+	basketItem1 := model.BasketItem{Id: "BI101", Name: "Binocular", Category1: "Collectibles", Category2: "Accessories", ItemType: "PHYSICAL", Price: big.NewFloat(0.3) }
+	basketItem2 := model.BasketItem{Id: "BI102", Name: "Game code", Category1: "Game", Category2: "Online Game Items", ItemType: "VIRTUAL", Price: big.NewFloat(0.5) }
+	basketItem3 := model.BasketItem{Id: "BI103", Name: "Usb", Category1: "Electronics", Category2: "Usb / Cable", ItemType: "PHYSICAL", Price: big.NewFloat(0.2) }
 	basketItems := []model.BasketItem{basketItem1, basketItem2, basketItem3}
 	request.BasketItems = basketItems
 

@@ -1,6 +1,7 @@
 package security
 
 import (
+	"bytes"
 	"reflect"
 )
 
@@ -23,20 +24,27 @@ func (pkiRequest PKIRequest) Append(key string, value string) PKIRequest {
 }
 
 func (pkiRequest PKIRequest) AppendSlice(key string, pkiRequestItems interface{}) PKIRequest {
-	//TODO: bu kısmı util'e çıkabiliriz
-	switch reflect.TypeOf(pkiRequestItems).Kind() {
-	case reflect.Slice:
-		s := reflect.ValueOf(pkiRequestItems)
+	if reflect.TypeOf(pkiRequestItems).Kind() == reflect.Slice {
+		slice := reflect.ValueOf(pkiRequestItems)
 
-		for i := 0; i < s.Len(); i++ {
-			item := s.Index(i)
+		var buffer bytes.Buffer
+		for i := 0; i < slice.Len(); i++ {
+			item := slice.Index(i)
+			//TODO: bu kısmı util'e çıkabiliriz
 			methodVal := item.MethodByName("ToPKIRequest")
 			methodIface := methodVal.Interface()
 			method := methodIface.(func() string)
 
 			//TODO: not finished implementation
-			method()
+			pki := method()
+			if i > 0 {
+				buffer.WriteString(", ")
+				buffer.WriteString(pki)
+			} else {
+				buffer.WriteString(pki)
+			}
 		}
+		return pkiRequest.Append(key, buffer.String())
 	}
 
 	return pkiRequest
