@@ -6,6 +6,7 @@ import (
 	"github.com/go-resty/resty"
 	. "iyzipay-go/iyzipay/model"
 	. "iyzipay-go/iyzipay/request"
+	. "iyzipay-go/iyzipay/response"
 	. "iyzipay-go/iyzipay/util"
 )
 
