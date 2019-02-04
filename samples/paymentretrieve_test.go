@@ -19,7 +19,7 @@ func TestPaymentRetrieve(t *testing.T) {
 	assert.Nil(t, payment.Meta.ErrorMessage)
 	assert.Nil(t, payment.Meta.ErrorGroup)
 
-	println(*payment.PaymentInfo.PaymentItems[0].PaidPrice == 0.36)
-	println(*payment.PaymentInfo.PaymentItems[0].SubMerchantKey)
-	println(*payment.PaymentInfo.PaymentItems[0].SubMerchantPayoutAmount)
+	//println(*payment.PaymentInfo.PaymentItems[0].PaidPrice == 0.36)
+	//println(*payment.PaymentInfo.PaymentItems[0].SubMerchantKey)
+	//println(*payment.PaymentInfo.PaymentItems[0].SubMerchantPayoutAmount)
 }

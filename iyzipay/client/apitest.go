@@ -3,10 +3,11 @@ package client
 import (
 	"github.com/go-resty/resty"
 	"iyzipay-go/iyzipay/model"
+	"iyzipay-go/iyzipay/util"
 	"log"
 )
 
-func ApiTest(options model.Options) model.ApiTestResponse {
+func ApiTest(options util.Options) model.ApiTestResponse {
 	successResponse := model.ApiTestResponse{}
 
 	_, err := resty.R().SetResult(&successResponse).Get(options.BaseUrl + "/payment/test")

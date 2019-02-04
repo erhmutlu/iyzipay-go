@@ -1,4 +1,4 @@
-package model
+package util
 
 type Options struct {
 	ApiKey    string

@@ -31,11 +31,11 @@ func (pkiRequest PKIRequest) AppendSlice(key string, pkiRequestItems interface{}
 		for i := 0; i < slice.Len(); i++ {
 			item := slice.Index(i)
 			//TODO: bu kısmı util'e çıkabiliriz
-			methodVal := item.MethodByName("ToPKIRequest")
-			methodIface := methodVal.Interface()
-			method := methodIface.(func() string)
+			//methodVal := item.MethodByName("ToPKIRequest")
+			//methodIface := methodVal.Interface()
+			//method := methodIface.(func() string)
 
-			pki := method()
+			pki := ToPKIRequestReflection(item)
 			if i > 0 {
 				buffer.WriteString(", ")
 				buffer.WriteString(pki)
@@ -52,4 +52,16 @@ func (pkiRequest PKIRequest) AppendSlice(key string, pkiRequestItems interface{}
 
 func (pkiRequest PKIRequest) ToString() string {
 	return "[" + pkiRequest.value + "]"
+}
+
+func ToPKIRequestReflection(i interface{}) string {
+	if reflect.TypeOf(i).Kind() == reflect.Struct {
+		item := reflect.ValueOf(i)
+		methodVal := item.MethodByName("ToPKIRequest")
+		methodIface := methodVal.Interface()
+		method := methodIface.(func() string)
+		return method()
+	}
+
+	return ""
 }

@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func TestPaymentAuth(t *testing.T) {
+func TestMarketplacePaymentAuth(t *testing.T) {
 	//options := samples.RetrieveOptions()
 	request := request.PaymentAuthRequest{}
 	request.Locale = "tr"
@@ -20,9 +20,9 @@ func TestPaymentAuth(t *testing.T) {
 	request.PaymentChannel = "WEB" //TODO: structa çıkılabilir
 	request.PaymentGroup = "PRODUCT" //TODO: structa çıkılabilir
 
-	basketItem1 := model.BasketItem{Id: "BI101", Name: "Binocular", Category1: "Collectibles", Category2: "Accessories", ItemType: "PHYSICAL", Price: big.NewFloat(0.3) }
-	basketItem2 := model.BasketItem{Id: "BI102", Name: "Game code", Category1: "Game", Category2: "Online Game Items", ItemType: "VIRTUAL", Price: big.NewFloat(0.5) }
-	basketItem3 := model.BasketItem{Id: "BI103", Name: "Usb", Category1: "Electronics", Category2: "Usb / Cable", ItemType: "PHYSICAL", Price: big.NewFloat(0.2) }
+	basketItem1 := model.BasketItem{Id: "BI101", Name: "Binocular", Category1: "Collectibles", Category2: "Accessories", ItemType: "PHYSICAL", Price: big.NewFloat(0.3), SubMerchantKey: "ha3us4v5mk2652kkjk5728cc4407an", SubMerchantPrice:big.NewFloat(0.27) }
+	basketItem2 := model.BasketItem{Id: "BI102", Name: "Game code", Category1: "Game", Category2: "Online Game Items", ItemType: "VIRTUAL", Price: big.NewFloat(0.5), SubMerchantKey: "ha3us4v5mk2652kkjk5728cc4407an", SubMerchantPrice:big.NewFloat(0.42) }
+	basketItem3 := model.BasketItem{Id: "BI103", Name: "Usb", Category1: "Electronics", Category2: "Usb / Cable", ItemType: "PHYSICAL", Price: big.NewFloat(0.2), SubMerchantKey: "ha3us4v5mk2652kkjk5728cc4407an", SubMerchantPrice:big.NewFloat(0.18) }
 	basketItems := []model.BasketItem{basketItem1, basketItem2, basketItem3}
 	request.BasketItems = basketItems
 
