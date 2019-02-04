@@ -35,7 +35,6 @@ func (pkiRequest PKIRequest) AppendSlice(key string, pkiRequestItems interface{}
 			methodIface := methodVal.Interface()
 			method := methodIface.(func() string)
 
-			//TODO: not finished implementation
 			pki := method()
 			if i > 0 {
 				buffer.WriteString(", ")
@@ -44,7 +43,8 @@ func (pkiRequest PKIRequest) AppendSlice(key string, pkiRequestItems interface{}
 				buffer.WriteString(pki)
 			}
 		}
-		return pkiRequest.Append(key, buffer.String())
+		s := "[" + buffer.String() + "]"
+		return pkiRequest.Append(key, s)
 	}
 
 	return pkiRequest

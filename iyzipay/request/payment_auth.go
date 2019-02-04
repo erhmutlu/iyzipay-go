@@ -3,14 +3,16 @@ package request
 import (
 	. "iyzipay-go/iyzipay/model"
 	. "iyzipay-go/iyzipay/security"
+	"iyzipay-go/iyzipay/util"
+	"math/big"
 	"strconv"
 )
 
 type PaymentAuthRequest struct {
 	Locale          string      `json:"locale,omitempty"`
 	ConversationId  string      `json:"conversationId,omitempty"`
-	Price           float64     `json:"price,omitempty"`
-	PaidPrice       float64     `json:"paidPrice,omitempty"`
+	Price           *big.Float     `json:"price,omitempty"`
+	PaidPrice       *big.Float     `json:"paidPrice,omitempty"`
 	Installment     int         `json:"installment,omitempty"`
 	PaymentChannel  string      `json:"paymentChannel,omitempty"`
 	BasketId        string      `json:"basketId,omitempty"`
@@ -31,8 +33,8 @@ func (paymentAuthRequest PaymentAuthRequest) ToPKIRequest() string {
 	pki := PKIRequest{}.
 		Append("locale", paymentAuthRequest.Locale).
 		Append("conversationId", paymentAuthRequest.ConversationId).
-		Append("price", strconv.FormatFloat(paymentAuthRequest.Price, 'f', -1, 64)).
-		Append("paidPrice", strconv.FormatFloat(paymentAuthRequest.PaidPrice, 'f', -1, 64)).
+		Append("price", util.FormatPrice(paymentAuthRequest.Price)).
+		Append("paidPrice", util.FormatPrice(paymentAuthRequest.PaidPrice)).
 		Append("installment", strconv.Itoa(paymentAuthRequest.Installment)).
 		Append("paymentChannel", paymentAuthRequest.PaymentChannel).
 		Append("basketId", paymentAuthRequest.BasketId).

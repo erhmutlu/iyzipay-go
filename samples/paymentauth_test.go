@@ -12,8 +12,8 @@ func TestPaymentAuth(t *testing.T) {
 	request := request.PaymentAuthRequest{}
 	request.Locale = "tr"
 	request.ConversationId = "123456789"
-	request.Price = 1.0
-	request.PaidPrice = 1.2
+	request.Price = big.NewFloat(1)
+	request.PaidPrice = big.NewFloat(1.2)
 	request.Currency = "TRY" //TODO: structa çıkılabilir
 	request.Installment = 1
 	request.BasketId = "B67832"
