@@ -9,32 +9,32 @@ import (
 )
 
 type PaymentAuthRequest struct {
-	Locale          string      `json:"locale,omitempty"`
-	ConversationId  string      `json:"conversationId,omitempty"`
-	Price           *big.Float     `json:"price,omitempty"`
-	PaidPrice       *big.Float     `json:"paidPrice,omitempty"`
-	Installment     int         `json:"installment,omitempty"`
-	PaymentChannel  string      `json:"paymentChannel,omitempty"`
-	BasketId        string      `json:"basketId,omitempty"`
-	PaymentGroup    string      `json:"paymentGroup,omitempty"`
-	PaymentCard     PaymentCard `json:"paymentCard,omitempty"`
-	Buyer           Buyer       `json:"buyer,omitempty"`
-	ShippingAddress Address     `json:"shippingAddress,omitempty"`
-	BillingAddress  Address     `json:"billingAddress,omitempty"`
+	Locale          string       `json:"locale,omitempty"`
+	ConversationId  string       `json:"conversationId,omitempty"`
+	Price           *big.Float   `json:"price,omitempty"`
+	PaidPrice       *big.Float   `json:"paidPrice,omitempty"`
+	Installment     int          `json:"installment,omitempty"`
+	PaymentChannel  string       `json:"paymentChannel,omitempty"`
+	BasketId        string       `json:"basketId,omitempty"`
+	PaymentGroup    string       `json:"paymentGroup,omitempty"`
+	PaymentCard     PaymentCard  `json:"paymentCard,omitempty"`
+	Buyer           Buyer        `json:"buyer,omitempty"`
+	ShippingAddress Address      `json:"shippingAddress,omitempty"`
+	BillingAddress  Address      `json:"billingAddress,omitempty"`
 	BasketItems     []BasketItem `json:"basketItems,omitempty"`
-	PaymentSource   string      `json:"paymentSource,omitempty"`
-	Currency        string      `json:"currency,omitempty"`
-	PosOrderId      string      `json:"posOrderId,omitempty"`
-	ConnectorName   string      `json:"connectorName,omitempty"`
-	CallbackUrl     string      `json:"callbackUrl,omitempty"`
+	PaymentSource   string       `json:"paymentSource,omitempty"`
+	Currency        string       `json:"currency,omitempty"`
+	PosOrderId      string       `json:"posOrderId,omitempty"`
+	ConnectorName   string       `json:"connectorName,omitempty"`
+	CallbackUrl     string       `json:"callbackUrl,omitempty"`
 }
 
 func (paymentAuthRequest PaymentAuthRequest) ToPKIRequest() string {
 	pki := PKIRequest{}.
 		Append("locale", paymentAuthRequest.Locale).
 		Append("conversationId", paymentAuthRequest.ConversationId).
-		Append("price", util.FormatPrice(paymentAuthRequest.Price)).
-		Append("paidPrice", util.FormatPrice(paymentAuthRequest.PaidPrice)).
+		Append("price", util.FormatFloat(paymentAuthRequest.Price)).
+		Append("paidPrice", util.FormatFloat(paymentAuthRequest.PaidPrice)).
 		Append("installment", strconv.Itoa(paymentAuthRequest.Installment)).
 		Append("paymentChannel", paymentAuthRequest.PaymentChannel).
 		Append("basketId", paymentAuthRequest.BasketId).

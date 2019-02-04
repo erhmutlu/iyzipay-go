@@ -20,13 +20,13 @@ type BasketItem struct {
 func (basketItem BasketItem) ToPKIRequest() string {
 	pki := PKIRequest{}.
 		Append("id", basketItem.Id).
-		Append("price", util.FormatPrice(basketItem.Price)).
+		Append("price", util.FormatFloat(basketItem.Price)).
 		Append("name", basketItem.Name).
 		Append("category1", basketItem.Category1).
 		Append("category2", basketItem.Category2).
 		Append("itemType", basketItem.ItemType).
 		Append("subMerchantKey", basketItem.SubMerchantKey).
-		Append("subMerchantPrice", util.FormatPrice(basketItem.SubMerchantPrice)).
+		Append("subMerchantPrice", util.FormatFloat(basketItem.SubMerchantPrice)).
 		ToString()
 
 	return pki

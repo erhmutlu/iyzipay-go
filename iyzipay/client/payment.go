@@ -19,3 +19,16 @@ func PaymentRetrieve(paymentRetrieveRequest PaymentRetrieveRequest, options Opti
 		Post(options.BaseUrl + "/payment/detail")
 	return successResponse
 }
+
+func PaymentAuth(paymentAuthRequest PaymentAuthRequest, options Options) PaymentRetrieveResponse {
+	successResponse := PaymentRetrieveResponse{}
+
+	resty.
+		SetDebug(options.DebugMode).
+		R().
+		SetHeaders(HttpHeaders(paymentAuthRequest, options)).
+		SetResult(&successResponse).
+		SetBody(paymentAuthRequest).
+		Post(options.BaseUrl + "/payment/auth")
+	return successResponse
+}

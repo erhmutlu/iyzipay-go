@@ -1,14 +1,17 @@
 package samples_test
 
 import (
+	"github.com/stretchr/testify/assert"
+	"iyzipay-go/iyzipay/client"
 	"iyzipay-go/iyzipay/model"
 	"iyzipay-go/iyzipay/request"
+	"iyzipay-go/samples"
 	"math/big"
 	"testing"
 )
 
 func TestMarketplacePaymentAuth(t *testing.T) {
-	//options := samples.RetrieveOptions()
+	options := samples.RetrieveOptions()
 	request := request.PaymentAuthRequest{}
 	request.Locale = "tr"
 	request.ConversationId = "123456789"
@@ -26,7 +29,7 @@ func TestMarketplacePaymentAuth(t *testing.T) {
 	basketItems := []model.BasketItem{basketItem1, basketItem2, basketItem3}
 	request.BasketItems = basketItems
 
-	paymentCard := model.PaymentCard{CardHolderName: "John Doe", CardNumber: "5528790000000008", ExpireYear: "2030", ExpireMonth: "12", Cvc: "123", RegisterCard: 0}
+	paymentCard := model.PaymentCard{CardHolderName: "John Doe", CardNumber: "5528790000000008", ExpireYear: "2030", ExpireMonth: "12", Cvc: "123"}
 	request.PaymentCard = paymentCard
 
 	shippingAddress := model.Address{ContactName: "Jane Doe", City: "Istanbul", Country: "Turkey", Address: "iyziPark", ZipCode: "11111"}
@@ -38,5 +41,7 @@ func TestMarketplacePaymentAuth(t *testing.T) {
 	buyer := model.Buyer{Id: "BY789", Name: "John", Surname: "Doe", GsmNumber: "+905350000000", Email: "email@email.com", IdentityNumber: "74300864791", LastLoginDate: "2015-10-05 12:43:35", RegistrationDate: "2013-04-21 15:12:09", RegistrationAddress: "iyziPark", Ip: "85.34.78.112", City: "Istanbul", Country: "Turkey", ZipCode: "11111"}
 	request.Buyer = buyer
 
-	println(request.ToPKIRequest())
+	payment := client.PaymentAuth(request, options)
+	assert.Equal(t, "success", *payment.Meta.Status)
+	assert.Equal(t, "123456789", *payment.Meta.ConversationId)
 }
