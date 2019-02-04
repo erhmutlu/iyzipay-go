@@ -1,7 +1,8 @@
 package model
 
 type Options struct {
-	ApiKey         string  `json:"apiKey"`
-	SecretKey      string  `json:"secretKey"`
-	BaseUrl        string  `json:"baseUrl"`
+	ApiKey    string
+	SecretKey string
+	BaseUrl   string
+	DebugMode bool
 }
