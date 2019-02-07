@@ -7,13 +7,13 @@ import (
 )
 
 type BasketItem struct {
-	Id               string   `json:"id,omitempty"`
-	Price            *big.Float  `json:"price,omitempty"`
-	Name             string   `json:"name,omitempty"`
-	Category1        string   `json:"category1,omitempty"`
-	Category2        string   `json:"category2,omitempty"`
-	ItemType         string   `json:"itemType,omitempty"`
-	SubMerchantKey   string   `json:"subMerchantKey,omitempty"`
+	Id               string     `json:"id,omitempty"`
+	Price            *big.Float `json:"price,omitempty"`
+	Name             string     `json:"name,omitempty"`
+	Category1        string     `json:"category1,omitempty"`
+	Category2        string     `json:"category2,omitempty"`
+	ItemType         string     `json:"itemType,omitempty"`
+	SubMerchantKey   *NullString `json:"subMerchantKey,omitempty"` //TODO: bu pointer olmak zorunda mı ?
 	SubMerchantPrice *big.Float `json:"subMerchantPrice,omitempty"`
 }
 
@@ -25,7 +25,7 @@ func (basketItem BasketItem) ToPKIRequest() string {
 		Append("category1", basketItem.Category1).
 		Append("category2", basketItem.Category2).
 		Append("itemType", basketItem.ItemType).
-		Append("subMerchantKey", basketItem.SubMerchantKey).
+		Append("subMerchantKey", basketItem.SubMerchantKey.Data).
 		Append("subMerchantPrice", util.FormatFloat(basketItem.SubMerchantPrice)).
 		ToString()
 

@@ -4,12 +4,11 @@ import (
 	"github.com/stretchr/testify/assert"
 	"iyzipay-go/iyzipay/client"
 	"iyzipay-go/iyzipay/request"
-	"iyzipay-go/samples"
 	"testing"
 )
 
 func TestPaymentRetrieve(t *testing.T) {
-	options := samples.RetrieveOptions()
+	options := RetrieveOptions()
 	request := request.PaymentRetrieveRequest{PaymentId: "11132055", ConversationId: "conversationId", Locale: "tr"}
 
 	payment := client.PaymentRetrieve(request, options)

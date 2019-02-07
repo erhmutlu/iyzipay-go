@@ -1,5 +1,9 @@
 package response
 
+import (
+	. "iyzipay-go/iyzipay/model"
+)
+
 type PaymentRetrieveResponse struct {
 	*Meta
 	*PaymentInfo
@@ -12,7 +16,7 @@ type PaymentInfo struct {
 	Installment                  *int          `json:"installment"`
 	PaymentId                    *string       `json:"paymentId"`
 	PaymentStatus                *string       `json:"paymentStatus"`
-	FraudStatus                  *string       `json:"fraudStatus"`
+	FraudStatus                  *int          `json:"fraudStatus"`
 	MerchantCommissionRate       *float64      `json:"merchantCommissionRate"`
 	MerchantCommissionRateAmount *float64      `json:"merchantCommissionRateAmount"`
 	IyziCommissionRateAmount     *float64      `json:"iyziCommissionRateAmount"`
@@ -28,7 +32,7 @@ type PaymentInfo struct {
 	AuthCode                     *string       `json:"authCode"`
 	Phase                        *string       `json:"phase"`
 	LastFourDigits               *string       `json:"lastFourDigits"`
-	PosOrderId                   *string       `json:"posOrderId"`
+	PosOrderId                   *NullString   `json:"posOrderId"`
 	HostReference                *string       `json:"hostReference"`
 	PaymentItems                 []PaymentItem `json:"itemTransactions"`
 }
