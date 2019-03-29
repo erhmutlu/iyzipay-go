@@ -22,7 +22,6 @@ func (ns *NullString) UnmarshalJSON(d []byte) error {
 		if ns.Data == "null" || len(strings.TrimSpace(ns.Data)) == 0 {
 			ns.Null = true
 		}
-
 		return nil
 	}
 }

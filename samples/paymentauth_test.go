@@ -13,7 +13,7 @@ func TestMarketplacePaymentAuth(t *testing.T) {
 	options := RetrieveOptions()
 	request := request.PaymentAuthRequest{}
 	request.Locale = "tr"
-	request.ConversationId = "123456789"
+	request.ConversationId = "123456789abc"
 	request.Price = big.NewFloat(1)
 	request.PaidPrice = big.NewFloat(1.2)
 	request.Currency = "TRY" //TODO: constanta çıkılabilir

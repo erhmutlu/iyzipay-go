@@ -32,3 +32,16 @@ func PaymentAuth(paymentAuthRequest PaymentAuthRequest, options Options) Payment
 		Post(options.BaseUrl + "/payment/auth")
 	return successResponse
 }
+
+func PaymentCancel(paymentCancelRequest PaymentCancelRequest, options Options) CancelResponse {
+	successResponse := CancelResponse{}
+
+	resty.
+		SetDebug(options.DebugMode).
+		R().
+		SetHeaders(HttpHeaders(paymentCancelRequest, options)).
+		SetResult(&successResponse).
+		SetBody(paymentCancelRequest).
+		Post(options.BaseUrl + "/payment/cancel")
+	return successResponse
+}
