@@ -1,7 +1,7 @@
 package response
 
 import (
-	. "iyzipay-go/iyzipay/model"
+	"iyzipay-go/iyzipay/nullable"
 )
 
 type PaymentRetrieveResponse struct {
@@ -10,31 +10,31 @@ type PaymentRetrieveResponse struct {
 }
 
 type PaymentInfo struct {
-	Price                        *float64      `json:"price"`
-	PaidPrice                    *float64      `json:"paidPrice"`
-	Currency                     *string       `json:"currency"`
-	Installment                  *int          `json:"installment"`
-	PaymentId                    *string       `json:"paymentId"`
-	PaymentStatus                *string       `json:"paymentStatus"`
-	FraudStatus                  *int          `json:"fraudStatus"`
-	MerchantCommissionRate       *float64      `json:"merchantCommissionRate"`
-	MerchantCommissionRateAmount *float64      `json:"merchantCommissionRateAmount"`
-	IyziCommissionRateAmount     *float64      `json:"iyziCommissionRateAmount"`
-	IyziCommissionFee            *float64      `json:"iyziCommissionFee"`
-	CardType                     *string       `json:"cardType"`
-	CardAssociation              *string       `json:"cardAssociation"`
-	CardFamily                   *string       `json:"cardFamily"`
-	CardToken                    *string       `json:"cardToken"`
-	CardUserKey                  *string       `json:"cardUserKey"`
-	BinNumber                    *string       `json:"binNumber"`
-	BasketId                     *string       `json:"basketId"`
-	ConnectorName                *string       `json:"connectorName"`
-	AuthCode                     *string       `json:"authCode"`
-	Phase                        *string       `json:"phase"`
-	LastFourDigits               *string       `json:"lastFourDigits"`
-	PosOrderId                   *NullString   `json:"posOrderId"`
-	HostReference                *string       `json:"hostReference"`
-	PaymentItems                 []PaymentItem `json:"itemTransactions"`
+	Price                        *float64         `json:"price"`
+	PaidPrice                    *float64         `json:"paidPrice"`
+	Currency                     *string          `json:"currency"`
+	Installment                  *int             `json:"installment"`
+	PaymentId                    *string          `json:"paymentId"`
+	PaymentStatus                *string          `json:"paymentStatus"`
+	FraudStatus                  *int             `json:"fraudStatus"`
+	MerchantCommissionRate       *float64         `json:"merchantCommissionRate"`
+	MerchantCommissionRateAmount *float64         `json:"merchantCommissionRateAmount"`
+	IyziCommissionRateAmount     *float64         `json:"iyziCommissionRateAmount"`
+	IyziCommissionFee            *float64         `json:"iyziCommissionFee"`
+	CardType                     *string          `json:"cardType"`
+	CardAssociation              *string          `json:"cardAssociation"`
+	CardFamily                   *string          `json:"cardFamily"`
+	CardToken                    *string          `json:"cardToken"`
+	CardUserKey                  *string          `json:"cardUserKey"`
+	BinNumber                    *string          `json:"binNumber"`
+	BasketId                     *string          `json:"basketId"`
+	ConnectorName                *string          `json:"connectorName"`
+	AuthCode                     *string          `json:"authCode"`
+	Phase                        *string          `json:"phase"`
+	LastFourDigits               *string          `json:"lastFourDigits"`
+	PosOrderId                   *nullable.String `json:"posOrderId"`
+	HostReference                *string          `json:"hostReference"`
+	PaymentItems                 []PaymentItem    `json:"itemTransactions"`
 }
 
 type PaymentItem struct {

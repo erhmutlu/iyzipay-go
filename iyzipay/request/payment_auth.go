@@ -4,15 +4,14 @@ import (
 	. "iyzipay-go/iyzipay/model"
 	. "iyzipay-go/iyzipay/security"
 	"iyzipay-go/iyzipay/util"
-	"math/big"
 	"strconv"
 )
 
 type PaymentAuthRequest struct {
 	Locale          string       `json:"locale,omitempty"`
 	ConversationId  string       `json:"conversationId,omitempty"`
-	Price           *big.Float   `json:"price,omitempty"`
-	PaidPrice       *big.Float   `json:"paidPrice,omitempty"`
+	Price           float64      `json:"price,omitempty"`
+	PaidPrice       float64      `json:"paidPrice,omitempty"`
 	Installment     int          `json:"installment,omitempty"`
 	PaymentChannel  string       `json:"paymentChannel,omitempty"`
 	BasketId        string       `json:"basketId,omitempty"`

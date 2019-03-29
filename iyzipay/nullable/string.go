@@ -1,20 +1,20 @@
-package model
+package nullable
 
 import (
 	"encoding/json"
 	"strings"
 )
 
-type NullString struct {
+type String struct {
 	Data string
 	Null bool
 }
 
-func NewNullString(str string) *NullString {
-	return &NullString{Data: str, Null: str == ""}
+func NewNullableString(str string) *String {
+	return &String{Data: str, Null: str == ""}
 }
 
-func (ns *NullString) UnmarshalJSON(d []byte) error {
+func (ns *String) UnmarshalJSON(d []byte) error {
 	err := json.Unmarshal(d, &ns.Data)
 	if err != nil {
 		return err
@@ -26,7 +26,7 @@ func (ns *NullString) UnmarshalJSON(d []byte) error {
 	}
 }
 
-func (ns *NullString) MarshalJSON() ([]byte, error) {
+func (ns *String) MarshalJSON() ([]byte, error) {
 	if ns.Null == true {
 		return json.Marshal(nil)
 	}
