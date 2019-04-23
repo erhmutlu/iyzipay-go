@@ -2,7 +2,6 @@ package security
 
 import (
 	"bytes"
-	"iyzipay-go/iyzipay/nullable"
 	"reflect"
 )
 
@@ -20,13 +19,6 @@ func (pkiRequest PKIRequest) Append(key string, value string) PKIRequest {
 		} else {
 			pkiRequest.value += tmp
 		}
-	}
-	return pkiRequest
-}
-
-func (pkiRequest PKIRequest) AppendNullableString(key string, str *nullable.String) PKIRequest {
-	if str != nil && !str.Null {
-		return pkiRequest.Append(key, str.Data)
 	}
 	return pkiRequest
 }

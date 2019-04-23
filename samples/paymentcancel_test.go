@@ -9,7 +9,7 @@ import (
 
 func TestPaymentCancel(t *testing.T) {
 	options := RetrieveOptions()
-	request := request.PaymentCancelRequest{PaymentId: "11305887", Ip: "127.0.0.1", ConversationId: "conversationId", Locale: "tr"}
+	request := request.PaymentCancelRequest{PaymentId: "11354069", Ip: "127.0.0.1", ConversationId: "conversationId", Locale: "tr"}
 
 	payment := client.PaymentCancel(request, options)
 	assert.Equal(t, "success", *payment.Meta.Status)

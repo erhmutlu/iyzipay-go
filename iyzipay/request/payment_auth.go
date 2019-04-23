@@ -1,7 +1,7 @@
 package request
 
 import (
-	. "iyzipay-go/iyzipay/model"
+	. "iyzipay-go/iyzipay/request/model"
 	. "iyzipay-go/iyzipay/security"
 	"iyzipay-go/iyzipay/util"
 	"strconv"
