@@ -9,7 +9,12 @@ import (
 
 func TestPaymentRetrieve(t *testing.T) {
 	options := RetrieveOptions()
-	request := request.PaymentRetrieveRequest{PaymentId: "11354047", PaymentConversationId: "123456789abc", ConversationId: "conversationId", Locale: "tr"}
+	request := request.PaymentRetrieveRequest{}
+	request.PaymentId = "12030239"
+	request.PaymentConversationId = "123456789abc"
+	request.ConversationId = "conversationId"
+	request.Locale = "tr"
+
 
 	payment := client.PaymentRetrieve(request, options)
 	assert.Equal(t, "success", *payment.Meta.Status)

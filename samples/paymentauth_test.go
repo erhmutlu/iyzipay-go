@@ -49,7 +49,6 @@ func TestMarketplacePaymentAuth(t *testing.T) {
 func TestStandardMerchantPaymentAuth(t *testing.T) {
 	options := RetrieveOptions()
 	request := request.PaymentAuthRequest{}
-	request.Locale = "tr"
 	request.ConversationId = "123456789abc"
 	request.Price = 1
 	request.PaidPrice = 1.2

@@ -1,19 +1,19 @@
 package request
 
 import (
+	. "iyzipay-go/iyzipay/request/model"
 	. "iyzipay-go/iyzipay/security"
 	"iyzipay-go/iyzipay/util"
 )
 
 type PaymentRefundRequest struct {
+	BaseRequest
 	PaymentTransactionId string  `json:"paymentTransactionId,omitempty"`
 	Price                float64 `json:"price,omitempty"`
 	Ip                   string  `json:"ip,omitempty"`
 	Currency             string  `json:"currency,omitempty"`
-	RefundReason         string  `json:"refundReason,omitempty"`
+	RefundReason         string  `json:"refundReason,omitempty"`  //TODO: RefundReason olarak gönderilebilecek değerler belli. burası ona göre güncellenmeli
 	Description          string  `json:"description,omitempty"`
-	Locale               string  `json:"locale,omitempty"`
-	ConversationId       string  `json:"conversationId,omitempty"`
 }
 
 func (paymentRefundRequest PaymentRefundRequest) ToPKIRequest() string {
