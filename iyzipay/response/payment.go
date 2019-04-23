@@ -57,6 +57,7 @@ type PaymentItem struct {
 	ConvertedPayout               *ConvertedPayout `json:"convertedPayout"`
 }
 
+//TODO: buradaki pointerlerin üstünden geç
 type ConvertedPayout struct {
 	PaidPrice                     *float64 `json:"paidPrice"`
 	IyziCommissionRateAmount      *float64 `json:"iyziCommissionRateAmount"`

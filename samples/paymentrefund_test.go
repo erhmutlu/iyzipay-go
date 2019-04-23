@@ -7,11 +7,11 @@ import (
 	"testing"
 )
 
-func TestPaymentCancel(t *testing.T) {
+func TestPaymentRefund(t *testing.T) {
 	options := RetrieveOptions()
-	request := request.PaymentCancelRequest{PaymentId: "11354069", Ip: "127.0.0.1", ConversationId: "conversationId", Locale: "tr"}
+	request := request.PaymentRefundRequest{PaymentTransactionId: "12030211", Price: 0.2, Ip: "127.0.0.1", ConversationId: "conversationId", Locale: "tr"}
 
-	response := client.PaymentCancel(request, options)
+	response := client.PaymentRefund(request, options)
 	assert.Equal(t, "success", *response.Meta.Status)
 	assert.Equal(t, "conversationId", *response.Meta.ConversationId)
 	assert.Nil(t, response.Meta.ErrorCode)
