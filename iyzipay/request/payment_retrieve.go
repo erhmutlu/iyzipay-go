@@ -1,14 +1,14 @@
 package request
 
 import (
+	. "iyzipay-go/iyzipay/request/model"
 	. "iyzipay-go/iyzipay/security"
 )
 
 type PaymentRetrieveRequest struct {
 	PaymentId             string `json:"paymentId,omitempty"`
 	PaymentConversationId string `json:"paymentConversationId,omitempty"`
-	Locale                string `json:"locale,omitempty"`
-	ConversationId        string `json:"conversationId,omitempty"`
+	BaseRequest
 }
 
 func (paymentRetrieveRequest PaymentRetrieveRequest) ToPKIRequest() string {

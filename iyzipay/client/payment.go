@@ -45,3 +45,16 @@ func PaymentCancel(paymentCancelRequest PaymentCancelRequest, options Options) C
 		Post(options.BaseUrl + "/payment/cancel")
 	return successResponse
 }
+
+func PaymentRefund(paymentRefundRequest PaymentRefundRequest, options Options) RefundResponse {
+	successResponse := RefundResponse{}
+
+	resty.
+		SetDebug(options.DebugMode).
+		R().
+		SetHeaders(HttpHeaders(paymentRefundRequest, options)).
+		SetResult(&successResponse).
+		SetBody(paymentRefundRequest).
+		Post(options.BaseUrl + "/payment/refund")
+	return successResponse
+}

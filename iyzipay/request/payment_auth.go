@@ -8,8 +8,7 @@ import (
 )
 
 type PaymentAuthRequest struct {
-	Locale          string       `json:"locale,omitempty"`
-	ConversationId  string       `json:"conversationId,omitempty"`
+	BaseRequest
 	Price           float64      `json:"price,omitempty"`
 	PaidPrice       float64      `json:"paidPrice,omitempty"`
 	Installment     int          `json:"installment,omitempty"`
@@ -30,7 +29,7 @@ type PaymentAuthRequest struct {
 
 func (paymentAuthRequest PaymentAuthRequest) ToPKIRequest() string {
 	pki := PKIRequest{}.
-		Append("locale", paymentAuthRequest.Locale).
+		Append("locale", paymentAuthRequest.Locale).  //TODO: AppendBaseRequest gibi bir şey eklenebilir.
 		Append("conversationId", paymentAuthRequest.ConversationId).
 		Append("price", util.FormatFloat(paymentAuthRequest.Price)).
 		Append("paidPrice", util.FormatFloat(paymentAuthRequest.PaidPrice)).
