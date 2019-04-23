@@ -2,7 +2,7 @@ package model
 
 import (
 	. "iyzipay-go/iyzipay/security"
-	"strconv"
+	"iyzipay-go/iyzipay/util"
 )
 
 type PaymentCard struct {
@@ -11,7 +11,7 @@ type PaymentCard struct {
 	ExpireYear     string   `json:"expireYear,omitempty"`
 	ExpireMonth    string   `json:"expireMonth,omitempty"`
 	Cvc            string   `json:"cvc,omitempty"`
-	RegisterCard   int      `json:"registerCard,omitempty"`
+	RegisterCard   *int     `json:"registerCard,omitempty"`
 	CardAlias      string   `json:"cardAlias,omitempty"`
 	CardToken      string   `json:"cardToken,omitempty"`
 	CardUserKey    string   `json:"cardUserKey,omitempty"`
@@ -25,7 +25,7 @@ func (paymentCard PaymentCard) ToPKIRequest() string {
 		Append("expireYear", paymentCard.ExpireYear).
 		Append("expireMonth", paymentCard.ExpireMonth).
 		Append("cvc", paymentCard.Cvc).
-		Append("registerCard", strconv.Itoa(paymentCard.RegisterCard)).
+		Append("registerCard", util.FormatInt(paymentCard.RegisterCard)).
 		Append("cardAlias", paymentCard.CardAlias).
 		Append("cardToken", paymentCard.CardToken).
 		Append("cardUserKey", paymentCard.CardUserKey).

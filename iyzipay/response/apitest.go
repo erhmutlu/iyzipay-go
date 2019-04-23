@@ -1,4 +1,4 @@
-package model
+package response
 
 type ApiTestResponse struct {
 	Status     string `json:"status"`

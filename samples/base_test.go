@@ -1,9 +1,9 @@
-package samples
+package samples_test
 
-import "iyzipay-go/iyzipay/model"
+import . "iyzipay-go/iyzipay/util"
 
-func RetrieveOptions() model.Options {
-	return model.Options{
+func RetrieveOptions() Options {
+	return Options{
 		BaseUrl:   "https://sandbox-api.iyzipay.com",
 		ApiKey:    "apiKey",
 		SecretKey: "secretKey",
