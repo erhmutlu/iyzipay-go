@@ -8,9 +8,9 @@ import (
 	"testing"
 )
 
-func TestMarketplacePaymentAuth(t *testing.T) {
+func TestMarketplacePaymentPreAuth(t *testing.T) {
 	options := RetrieveOptions()
-	request := request.PaymentAuthRequest{}
+	request := request.PaymentPreAuthRequest{}
 	request.Locale = "tr"
 	request.ConversationId = "123456789abc"
 	request.Price = 1
@@ -41,14 +41,14 @@ func TestMarketplacePaymentAuth(t *testing.T) {
 	buyer := model.Buyer{Id: "BY789", Name: "John", Surname: "Doe", GsmNumber: "+905350000000", Email: "email@email.com", IdentityNumber: "74300864791", LastLoginDate: "2015-10-05 12:43:35", RegistrationDate: "2013-04-21 15:12:09", RegistrationAddress: "iyziPark", Ip: "85.34.78.112", City: "Istanbul", Country: "Turkey", ZipCode: "11111"}
 	request.Buyer = buyer
 
-	payment := client.PaymentAuth(request, options)
+	payment := client.PaymentPreAuth(request, options)
 	assert.Equal(t, "success", *payment.Meta.Status)
 	assert.Equal(t, "123456789abc", *payment.Meta.ConversationId)
 }
 
-func TestStandardMerchantPaymentAuth(t *testing.T) {
+func TestStandardMerchantPaymentPreAuth(t *testing.T) {
 	options := RetrieveOptions()
-	request := request.PaymentAuthRequest{}
+	request := request.PaymentPreAuthRequest{}
 	request.Locale = "tr"
 	request.ConversationId = "123456789abc"
 	request.Price = 1
@@ -77,7 +77,7 @@ func TestStandardMerchantPaymentAuth(t *testing.T) {
 	buyer := model.Buyer{Id: "BY789", Name: "John", Surname: "Doe", GsmNumber: "+905350000000", Email: "email@email.com", IdentityNumber: "74300864791", LastLoginDate: "2015-10-05 12:43:35", RegistrationDate: "2013-04-21 15:12:09", RegistrationAddress: "iyziPark", Ip: "85.34.78.112", City: "Istanbul", Country: "Turkey", ZipCode: "11111"}
 	request.Buyer = buyer
 
-	payment := client.PaymentAuth(request, options)
+	payment := client.PaymentPreAuth(request, options)
 	assert.Equal(t, "success", *payment.Meta.Status)
 	assert.Equal(t, "123456789abc", *payment.Meta.ConversationId)
 }

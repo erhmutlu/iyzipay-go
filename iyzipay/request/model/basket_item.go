@@ -13,7 +13,7 @@ type BasketItem struct {
 	Category2        string  `json:"category2,omitempty"`
 	ItemType         string  `json:"itemType,omitempty"`
 	SubMerchantKey   string  `json:"subMerchantKey,omitempty"`
-	SubMerchantPrice float64 `json:"subeMerchantPrice,omitempty"`
+	SubMerchantPrice float64 `json:"subMerchantPrice,omitempty"`
 }
 
 func (basketItem BasketItem) ToPKIRequest() string {
