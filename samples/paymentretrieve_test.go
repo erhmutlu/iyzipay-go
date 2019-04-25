@@ -10,7 +10,7 @@ import (
 func TestPaymentRetrieve(t *testing.T) {
 	options := RetrieveOptions()
 	request := request.PaymentRetrieveRequest{}
-	request.PaymentId = "12030239"
+	request.PaymentId = "11358989"
 	request.PaymentConversationId = "123456789abc"
 	request.ConversationId = "conversationId"
 	request.Locale = "tr"
