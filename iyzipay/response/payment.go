@@ -1,6 +1,9 @@
 package response
 
-import "iyzipay-go/iyzipay/response/nullable"
+import (
+	. "iyzipay-go/iyzipay/request/model"
+	"iyzipay-go/iyzipay/response/nullable"
+)
 
 type PaymentRetrieveResponse struct {
 	*Meta
@@ -10,7 +13,7 @@ type PaymentRetrieveResponse struct {
 type PaymentInfo struct {
 	Price                        float64          `json:"price"`
 	PaidPrice                    float64          `json:"paidPrice"`
-	Currency                     string           `json:"currency"`
+	Currency                     Currency         `json:"currency"`
 	Installment                  int              `json:"installment"`
 	PaymentId                    string           `json:"paymentId"`
 	PaymentStatus                string           `json:"paymentStatus"`
@@ -45,15 +48,15 @@ type PaymentItem struct {
 	MerchantCommissionRateAmount  float64          `json:"merchantCommissionRateAmount"`
 	IyziCommissionRateAmount      float64          `json:"iyziCommissionRateAmount"`
 	IyziCommissionFee             float64          `json:"iyziCommissionFee"`
-	BlockageRate                  float64         `json:"blockageRate"`
-	BlockageRateAmountMerchant    float64         `json:"blockageRateAmountMerchant"`
-	BlockageRateAmountSubMerchant float64         `json:"blockageRateAmountSubMerchant"`
-	BlockageResolvedDate          string          `json:"blockageResolvedDate"`
+	BlockageRate                  float64          `json:"blockageRate"`
+	BlockageRateAmountMerchant    float64          `json:"blockageRateAmountMerchant"`
+	BlockageRateAmountSubMerchant float64          `json:"blockageRateAmountSubMerchant"`
+	BlockageResolvedDate          string           `json:"blockageResolvedDate"`
 	SubMerchantKey                *nullable.String `json:"subMerchantKey"`
 	SubMerchantPrice              *nullable.Float  `json:"subMerchantPrice"`
 	SubMerchantPayoutRate         *nullable.Float  `json:"subMerchantPayoutRate"`
 	SubMerchantPayoutAmount       *nullable.Float  `json:"subMerchantPayoutAmount"`
-	MerchantPayoutAmount          float64         `json:"merchantPayoutAmount"`
+	MerchantPayoutAmount          float64          `json:"merchantPayoutAmount"`
 	ConvertedPayout               *ConvertedPayout `json:"convertedPayout"`
 }
 
@@ -68,5 +71,5 @@ type ConvertedPayout struct {
 	MerchantPayoutAmount          *float64 `json:"merchantPayoutAmount"`
 	IyziConversionRate            *float64 `json:"iyziConversionRate"`
 	IyziConversionRateAmount      *float64 `json:"iyziConversionRateAmount"`
-	Currency                      *string  `json:"currency"`
+	Currency                      Currency `json:"currency"`
 }

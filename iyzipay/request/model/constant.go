@@ -7,7 +7,6 @@ const (
 	EUR Currency = "EUR"
 	USD Currency = "USD"
 	GBP Currency = "GBP"
-	IRR Currency = "IRR"
 	NOK Currency = "NOK"
 	RUB Currency = "RUB"
 	CHF Currency = "CHF"
