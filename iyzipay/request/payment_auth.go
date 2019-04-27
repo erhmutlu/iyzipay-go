@@ -4,7 +4,6 @@ import (
 	. "iyzipay-go/iyzipay/request/model"
 	. "iyzipay-go/iyzipay/security"
 	"iyzipay-go/iyzipay/util"
-	"strconv"
 )
 
 type PaymentAuthRequest struct {
@@ -14,11 +13,11 @@ type PaymentAuthRequest struct {
 
 func (paymentAuthRequest PaymentAuthRequest) ToPKIRequest() string {
 	pki := PKIRequest{}.
-		Append("locale", paymentAuthRequest.Locale).  //TODO: AppendBaseRequest gibi bir şey eklenebilir.
+		Append("locale", paymentAuthRequest.Locale). //TODO: AppendBaseRequest gibi bir şey eklenebilir.
 		Append("conversationId", paymentAuthRequest.ConversationId).
-		Append("price", util.FormatFloat(paymentAuthRequest.Price)).
-		Append("paidPrice", util.FormatFloat(paymentAuthRequest.PaidPrice)).
-		Append("installment", strconv.Itoa(paymentAuthRequest.Installment)).
+		Append("price", util.FormatPrimitiveFloat(paymentAuthRequest.Price)).
+		Append("paidPrice", util.FormatPrimitiveFloat(paymentAuthRequest.PaidPrice)).
+		Append("installment", util.FormatPrimitiveInt(paymentAuthRequest.Installment)).
 		Append("paymentChannel", paymentAuthRequest.PaymentChannel).
 		Append("basketId", paymentAuthRequest.BasketId).
 		Append("paymentGroup", paymentAuthRequest.PaymentGroup).

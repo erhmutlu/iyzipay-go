@@ -46,6 +46,19 @@ func PaymentPreAuth(paymentPreAuthRequest PaymentPreAuthRequest, options Options
 	return successResponse
 }
 
+func PaymentPostAuth(paymentPostAuthRequest PaymentPostAuthRequest, options Options) PaymentRetrieveResponse {
+	successResponse := PaymentRetrieveResponse{}
+
+	resty.
+		SetDebug(options.DebugMode).
+		R().
+		SetHeaders(HttpHeaders(paymentPostAuthRequest, options)).
+		SetResult(&successResponse).
+		SetBody(paymentPostAuthRequest).
+		Post(options.BaseUrl + "/payment/postauth")
+	return successResponse
+}
+
 func PaymentCancel(paymentCancelRequest PaymentCancelRequest, options Options) CancelResponse {
 	successResponse := CancelResponse{}
 

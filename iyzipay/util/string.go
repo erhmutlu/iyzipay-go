@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-func FormatFloat(flt float64) string {
+func FormatPrimitiveFloat(flt float64) string {
 	if flt == 0 {
 		return ""
 	}
@@ -23,4 +23,8 @@ func FormatInt(int *int) string {
 		return ""
 	}
 	return strconv.Itoa(*int)
+}
+
+func FormatPrimitiveInt(int int) string {
+	return strconv.Itoa(int)
 }
