@@ -40,3 +40,10 @@ const (
 	LISTING      PaymentGroup = "LISTING"
 	SUBSCRIPTION PaymentGroup = "SUBSCRIPTION"
 )
+
+type BasketItemType string
+
+const (
+	PHYSICAL BasketItemType = "PHYSICAL"
+	VIRTUAL  BasketItemType = "VIRTUAL"
+)

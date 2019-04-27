@@ -21,11 +21,11 @@ func TestMarketplacePaymentAuth(t *testing.T) {
 	request.PaymentChannel = WEB
 	request.PaymentGroup = PRODUCT
 
-	basketItem1 := BasketItem{Id: "BI101", Name: "Binocular", Category1: "Collectibles", Category2: "Accessories", ItemType: "PHYSICAL", Price: 0.3, SubMerchantKey: "ha3us4v5mk2652kkjk5728cc4407an", SubMerchantPrice: 0.27}
+	basketItem1 := BasketItem{Id: "BI101", Name: "Binocular", Category1: "Collectibles", Category2: "Accessories", ItemType: PHYSICAL, Price: 0.3, SubMerchantKey: "ha3us4v5mk2652kkjk5728cc4407an", SubMerchantPrice: 0.27}
 	p := basketItem1.ToPKIRequest()
 	println(p)
-	basketItem2 := BasketItem{Id: "BI102", Name: "Game code", Category1: "Game", Category2: "Online Game Items", ItemType: "VIRTUAL", Price: 0.5, SubMerchantKey: "ha3us4v5mk2652kkjk5728cc4407an", SubMerchantPrice: 0.42}
-	basketItem3 := BasketItem{Id: "BI103", Name: "Usb", Category1: "Electronics", Category2: "Usb / Cable", ItemType: "PHYSICAL", Price: 0.2, SubMerchantKey: "ha3us4v5mk2652kkjk5728cc4407an", SubMerchantPrice: 0.18}
+	basketItem2 := BasketItem{Id: "BI102", Name: "Game code", Category1: "Game", Category2: "Online Game Items", ItemType: VIRTUAL, Price: 0.5, SubMerchantKey: "ha3us4v5mk2652kkjk5728cc4407an", SubMerchantPrice: 0.42}
+	basketItem3 := BasketItem{Id: "BI103", Name: "Usb", Category1: "Electronics", Category2: "Usb / Cable", ItemType: PHYSICAL, Price: 0.2, SubMerchantKey: "ha3us4v5mk2652kkjk5728cc4407an", SubMerchantPrice: 0.18}
 	basketItems := []BasketItem{basketItem1, basketItem2, basketItem3}
 	request.BasketItems = basketItems
 
@@ -59,9 +59,9 @@ func TestStandardMerchantPaymentAuth(t *testing.T) {
 	request.PaymentChannel = WEB
 	request.PaymentGroup = PRODUCT
 
-	basketItem1 := BasketItem{Id: "BI101", Name: "Binocular", Category1: "Collectibles", Category2: "Accessories", ItemType: "PHYSICAL", Price: 0.3}
-	basketItem2 := BasketItem{Id: "BI102", Name: "Game code", Category1: "Game", Category2: "Online Game Items", ItemType: "VIRTUAL", Price: 0.5}
-	basketItem3 := BasketItem{Id: "BI103", Name: "Usb", Category1: "Electronics", Category2: "Usb / Cable", ItemType: "PHYSICAL", Price: 0.2}
+	basketItem1 := BasketItem{Id: "BI101", Name: "Binocular", Category1: "Collectibles", Category2: "Accessories", ItemType: PHYSICAL, Price: 0.3}
+	basketItem2 := BasketItem{Id: "BI102", Name: "Game code", Category1: "Game", Category2: "Online Game Items", ItemType: VIRTUAL, Price: 0.5}
+	basketItem3 := BasketItem{Id: "BI103", Name: "Usb", Category1: "Electronics", Category2: "Usb / Cable", ItemType: PHYSICAL, Price: 0.2}
 	basketItems := []BasketItem{basketItem1, basketItem2, basketItem3}
 	request.BasketItems = basketItems
 
