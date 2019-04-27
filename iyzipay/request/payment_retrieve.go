@@ -13,7 +13,7 @@ type PaymentRetrieveRequest struct {
 
 func (paymentRetrieveRequest PaymentRetrieveRequest) ToPKIRequest() string {
 	pki := PKIRequest{}.
-		Append("locale", paymentRetrieveRequest.Locale).
+		Append("locale", string(paymentRetrieveRequest.Locale)).
 		Append("conversationId", paymentRetrieveRequest.ConversationId).
 		Append("paymentId", paymentRetrieveRequest.PaymentId).
 		Append("paymentConversationId", paymentRetrieveRequest.PaymentConversationId).

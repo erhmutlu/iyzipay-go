@@ -18,7 +18,7 @@ type PaymentRefundRequest struct {
 
 func (paymentRefundRequest PaymentRefundRequest) ToPKIRequest() string {
 	pki := PKIRequest{}.
-		Append("locale", paymentRefundRequest.Locale).
+		Append("locale", string(paymentRefundRequest.Locale)).
 		Append("conversationId", paymentRefundRequest.ConversationId).
 		Append("paymentTransactionId", paymentRefundRequest.PaymentTransactionId).
 		Append("price", util.FormatPrimitiveFloat(paymentRefundRequest.Price)).

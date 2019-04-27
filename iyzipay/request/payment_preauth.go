@@ -13,7 +13,7 @@ type PaymentPreAuthRequest struct {
 
 func (paymentPreAuthRequest PaymentPreAuthRequest) ToPKIRequest() string {
 	pki := PKIRequest{}.
-		Append("locale", paymentPreAuthRequest.Locale). //TODO: AppendBaseRequest gibi bir şey eklenebilir.
+		Append("locale", string(paymentPreAuthRequest.Locale)).
 		Append("conversationId", paymentPreAuthRequest.ConversationId).
 		Append("price", util.FormatPrimitiveFloat(paymentPreAuthRequest.Price)).
 		Append("paidPrice", util.FormatPrimitiveFloat(paymentPreAuthRequest.PaidPrice)).
@@ -27,7 +27,7 @@ func (paymentPreAuthRequest PaymentPreAuthRequest) ToPKIRequest() string {
 		Append("billingAddress", paymentPreAuthRequest.BillingAddress.ToPKIRequest()).
 		AppendSlice("basketItems", paymentPreAuthRequest.BasketItems).
 		Append("paymentSource", paymentPreAuthRequest.PaymentSource).
-		Append("currency", paymentPreAuthRequest.Currency).
+		Append("currency", string(paymentPreAuthRequest.Currency)).
 		Append("posOrderId", paymentPreAuthRequest.PosOrderId).
 		Append("connectorName", paymentPreAuthRequest.ConnectorName).
 		Append("callbackUrl", paymentPreAuthRequest.CallbackUrl).

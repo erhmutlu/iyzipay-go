@@ -4,6 +4,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"iyzipay-go/iyzipay/client"
 	"iyzipay-go/iyzipay/request"
+	. "iyzipay-go/iyzipay/request/model"
 	"testing"
 )
 
@@ -13,8 +14,7 @@ func TestPaymentRetrieve(t *testing.T) {
 	request.PaymentId = "11361086"
 	request.PaymentConversationId = "123456789abc"
 	request.ConversationId = "conversationId"
-	request.Locale = "tr"
-
+	request.Locale = TR
 
 	payment := client.PaymentRetrieve(request, options)
 	assert.Equal(t, "success", *payment.Meta.Status)

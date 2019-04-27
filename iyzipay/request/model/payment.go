@@ -13,7 +13,7 @@ type PaymentCreateRequest struct {
 	BillingAddress  Address      `json:"billingAddress,omitempty"`
 	BasketItems     []BasketItem `json:"basketItems,omitempty"`
 	PaymentSource   string       `json:"paymentSource,omitempty"`
-	Currency        string       `json:"currency,omitempty"`
+	Currency        Currency     `json:"currency,omitempty"`
 	PosOrderId      string       `json:"posOrderId,omitempty"`
 	ConnectorName   string       `json:"connectorName,omitempty"`
 	CallbackUrl     string       `json:"callbackUrl,omitempty"`
