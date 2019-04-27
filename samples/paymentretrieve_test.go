@@ -17,8 +17,8 @@ func TestPaymentRetrieve(t *testing.T) {
 	request.Locale = TR
 
 	payment := client.PaymentRetrieve(request, options)
-	assert.Equal(t, "success", *payment.Meta.Status)
-	assert.Equal(t, "conversationId", *payment.Meta.ConversationId)
+	assert.Equal(t, "success", payment.Meta.Status)
+	assert.Equal(t, "conversationId", payment.Meta.ConversationId.Data)
 	assert.Nil(t, payment.Meta.ErrorCode)
 	assert.Nil(t, payment.Meta.ErrorMessage)
 	assert.Nil(t, payment.Meta.ErrorGroup)

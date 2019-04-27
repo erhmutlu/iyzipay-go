@@ -25,11 +25,11 @@ type PaymentInfo struct {
 	CardType                     string           `json:"cardType"`
 	CardAssociation              string           `json:"cardAssociation"`
 	CardFamily                   string           `json:"cardFamily"`
-	CardToken                    string           `json:"cardToken"`
-	CardUserKey                  string           `json:"cardUserKey"`
+	CardToken                    *nullable.String `json:"cardToken"`
+	CardUserKey                  *nullable.String `json:"cardUserKey"`
 	BinNumber                    string           `json:"binNumber"`
 	BasketId                     string           `json:"basketId"`
-	ConnectorName                string           `json:"connectorName"`
+	ConnectorName                *nullable.String `json:"connectorName"`
 	AuthCode                     string           `json:"authCode"`
 	Phase                        string           `json:"phase"`
 	LastFourDigits               string           `json:"lastFourDigits"`
@@ -43,7 +43,7 @@ type PaymentItem struct {
 	PaymentTransactionId          string           `json:"paymentTransactionId"`
 	TransactionStatus             int              `json:"transactionStatus"`
 	Price                         float64          `json:"price"`
-	PaidPrice                     float64          `json:"paidPrice"`
+	PaidPrice                     *nullable.Float  `json:"paidPrice"`
 	MerchantCommissionRate        float64          `json:"merchantCommissionRate"`
 	MerchantCommissionRateAmount  float64          `json:"merchantCommissionRateAmount"`
 	IyziCommissionRateAmount      float64          `json:"iyziCommissionRateAmount"`
@@ -60,16 +60,15 @@ type PaymentItem struct {
 	ConvertedPayout               *ConvertedPayout `json:"convertedPayout"`
 }
 
-//TODO: buradaki pointerlerin üstünden geç
 type ConvertedPayout struct {
-	PaidPrice                     *float64 `json:"paidPrice"`
-	IyziCommissionRateAmount      *float64 `json:"iyziCommissionRateAmount"`
-	IyziCommissionFee             *float64 `json:"iyziCommissionFee"`
-	BlockageRateAmountMerchant    *float64 `json:"blockageRateAmountMerchant"`
-	BlockageRateAmountSubMerchant *float64 `json:"blockageRateAmountSubMerchant"`
-	SubMerchantPayoutAmount       *float64 `json:"subMerchantPayoutAmount"`
-	MerchantPayoutAmount          *float64 `json:"merchantPayoutAmount"`
-	IyziConversionRate            *float64 `json:"iyziConversionRate"`
-	IyziConversionRateAmount      *float64 `json:"iyziConversionRateAmount"`
-	Currency                      Currency `json:"currency"`
+	PaidPrice                     float64         `json:"paidPrice"`
+	IyziCommissionRateAmount      float64         `json:"iyziCommissionRateAmount"`
+	IyziCommissionFee             float64         `json:"iyziCommissionFee"`
+	BlockageRateAmountMerchant    float64         `json:"blockageRateAmountMerchant"`
+	BlockageRateAmountSubMerchant float64         `json:"blockageRateAmountSubMerchant"`
+	SubMerchantPayoutAmount       *nullable.Float `json:"subMerchantPayoutAmount"`
+	MerchantPayoutAmount          float64         `json:"merchantPayoutAmount"`
+	IyziConversionRate            *nullable.Float `json:"iyziConversionRate"`
+	IyziConversionRateAmount      *nullable.Float `json:"iyziConversionRateAmount"`
+	Currency                      Currency        `json:"currency"`
 }

@@ -1,6 +1,9 @@
 package response
 
-import . "iyzipay-go/iyzipay/request/model"
+import (
+	. "iyzipay-go/iyzipay/request/model"
+	"iyzipay-go/iyzipay/response/nullable"
+)
 
 type CancelResponse struct {
 	*Meta
@@ -8,10 +11,10 @@ type CancelResponse struct {
 }
 
 type CancelInfo struct {
-	Price         float64  `json:"price"`
-	PaymentId     string   `json:"paymentId"`
-	Currency      Currency `json:"currency"`
-	ConnectorName *string  `json:"connectorName"`
-	AuthCode      string   `json:"authCode"`
-	HostReference string   `json:"hostReference"`
+	Price         float64          `json:"price"`
+	PaymentId     string           `json:"paymentId"`
+	Currency      Currency         `json:"currency"`
+	ConnectorName *nullable.String `json:"connectorName"`
+	AuthCode      string           `json:"authCode"`
+	HostReference string           `json:"hostReference"`
 }
