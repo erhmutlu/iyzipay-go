@@ -1,11 +1,16 @@
 package response
 
+import (
+	. "iyzipay-go/iyzipay/request/model"
+	"iyzipay-go/iyzipay/response/nullable"
+)
+
 type Meta struct {
-	ConversationId *string `json:"conversationId"`
-	Status         *string `json:"status"`
-	ErrorCode      *string `json:"errorCode"`
-	ErrorMessage   *string `json:"errorMessage"`
-	ErrorGroup     *string `json:"errorGroup"`
-	Locale         *string `json:"locale"`
-	SystemTime     *int64  `json:"systemTime"`
+	ConversationId *nullable.String `json:"conversationId"`
+	Status         string           `json:"status"`
+	ErrorCode      *nullable.String `json:"errorCode"`
+	ErrorMessage   *nullable.String `json:"errorMessage"`
+	ErrorGroup     *nullable.String `json:"errorGroup"`
+	Locale         Locale           `json:"locale"`
+	SystemTime     *nullable.Int64  `json:"systemTime"`
 }

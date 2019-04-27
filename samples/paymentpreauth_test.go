@@ -42,8 +42,8 @@ func TestMarketplacePaymentPreAuth(t *testing.T) {
 	request.Buyer = buyer
 
 	payment := client.PaymentPreAuth(request, options)
-	assert.Equal(t, "success", *payment.Meta.Status)
-	assert.Equal(t, "123456789abc", *payment.Meta.ConversationId)
+	assert.Equal(t, "success", payment.Meta.Status)
+	assert.Equal(t, "123456789abc", payment.Meta.ConversationId.Data)
 }
 
 func TestStandardMerchantPaymentPreAuth(t *testing.T) {
@@ -78,6 +78,6 @@ func TestStandardMerchantPaymentPreAuth(t *testing.T) {
 	request.Buyer = buyer
 
 	payment := client.PaymentPreAuth(request, options)
-	assert.Equal(t, "success", *payment.Meta.Status)
-	assert.Equal(t, "123456789abc", *payment.Meta.ConversationId)
+	assert.Equal(t, "success", payment.Meta.Status)
+	assert.Equal(t, "123456789abc", payment.Meta.ConversationId.Data)
 }
