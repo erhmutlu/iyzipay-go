@@ -1,6 +1,6 @@
 package samples_test
 
-import . "iyzipay-go/iyzipay/util"
+import . "iyzipay-go/iyzipay/request/model"
 
 func RetrieveOptions() Options {
 	return Options{

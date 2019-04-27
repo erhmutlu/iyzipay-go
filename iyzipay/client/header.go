@@ -1,7 +1,9 @@
-package util
+package client
 
 import (
-	"iyzipay-go/iyzipay/security"
+	. "iyzipay-go/iyzipay/request/model"
+	. "iyzipay-go/iyzipay/util"
+	. "iyzipay-go/iyzipay/security"
 )
 
 func HttpHeaders(request interface{}, options Options) map[string]string {
@@ -16,6 +18,6 @@ func HttpHeaders(request interface{}, options Options) map[string]string {
 }
 
 func prepareAuthorizationString(request interface{}, random string, options Options) string {
-	hash := security.PrepareHashV1(request, random, options.ApiKey, options.SecretKey)
+	hash := PrepareHashV1(request, random, options.ApiKey, options.SecretKey)
 	return "IYZWS " + options.ApiKey + ":" + hash
 }
