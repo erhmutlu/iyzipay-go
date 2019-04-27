@@ -4,16 +4,17 @@ import (
 	"github.com/stretchr/testify/assert"
 	"iyzipay-go/iyzipay/client"
 	"iyzipay-go/iyzipay/request"
+	. "iyzipay-go/iyzipay/request/model"
 	"testing"
 )
 
 func TestPaymentCancel(t *testing.T) {
 	options := RetrieveOptions()
 	request := request.PaymentCancelRequest{}
-	request.PaymentId = "11359041"
+	request.PaymentId = "11361181"
 	request.Ip = "127.0.0.1"
 	request.ConversationId = "conversationId"
-	request.Locale = "tr"
+	request.Locale = TR
 
 	response := client.PaymentCancel(request, options)
 	assert.Equal(t, "success", *response.Meta.Status)

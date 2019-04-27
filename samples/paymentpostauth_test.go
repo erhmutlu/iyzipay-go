@@ -4,17 +4,18 @@ import (
 	"github.com/stretchr/testify/assert"
 	"iyzipay-go/iyzipay/client"
 	"iyzipay-go/iyzipay/request"
+	. "iyzipay-go/iyzipay/request/model"
 	"testing"
 )
 
 func TestPaymentPostAuth(t *testing.T) {
 	options := RetrieveOptions()
 	request := request.PaymentPostAuthRequest{}
-	request.Locale = "tr"
+	request.Locale = TR
 	request.ConversationId = "123456789abc"
-	request.PaymentId = "11361093"
+	request.PaymentId = "11361181"
 	request.PaidPrice = 1.2
-	request.Currency = "TRY" //TODO: constanta çıkılabilir
+	request.Currency = TRY
 	request.Ip = "127.0.0.1"
 
 	payment := client.PaymentPostAuth(request, options)

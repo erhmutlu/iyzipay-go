@@ -15,7 +15,7 @@ type PaymentCancelRequest struct {
 
 func (paymentCancelRequest PaymentCancelRequest) ToPKIRequest() string {
 	pki := PKIRequest{}.
-		Append("locale", paymentCancelRequest.Locale).
+		Append("locale", string(paymentCancelRequest.Locale)).
 		Append("conversationId", paymentCancelRequest.ConversationId).
 		Append("paymentId", paymentCancelRequest.PaymentId).
 		Append("ip", paymentCancelRequest.Ip).

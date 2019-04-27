@@ -13,21 +13,21 @@ type PaymentAuthRequest struct {
 
 func (paymentAuthRequest PaymentAuthRequest) ToPKIRequest() string {
 	pki := PKIRequest{}.
-		Append("locale", paymentAuthRequest.Locale). //TODO: AppendBaseRequest gibi bir şey eklenebilir.
+		Append("locale", string(paymentAuthRequest.Locale)). //TODO: AppendBaseRequest gibi bir şey eklenebilir.
 		Append("conversationId", paymentAuthRequest.ConversationId).
 		Append("price", util.FormatPrimitiveFloat(paymentAuthRequest.Price)).
 		Append("paidPrice", util.FormatPrimitiveFloat(paymentAuthRequest.PaidPrice)).
 		Append("installment", util.FormatPrimitiveInt(paymentAuthRequest.Installment)).
-		Append("paymentChannel", paymentAuthRequest.PaymentChannel).
+		Append("paymentChannel", string(paymentAuthRequest.PaymentChannel)).
 		Append("basketId", paymentAuthRequest.BasketId).
-		Append("paymentGroup", paymentAuthRequest.PaymentGroup).
+		Append("paymentGroup", string(paymentAuthRequest.PaymentGroup)).
 		Append("paymentCard", paymentAuthRequest.PaymentCard.ToPKIRequest()).
 		Append("buyer", paymentAuthRequest.Buyer.ToPKIRequest()).
 		Append("shippingAddress", paymentAuthRequest.ShippingAddress.ToPKIRequest()).
 		Append("billingAddress", paymentAuthRequest.BillingAddress.ToPKIRequest()).
 		AppendSlice("basketItems", paymentAuthRequest.BasketItems).
 		Append("paymentSource", paymentAuthRequest.PaymentSource).
-		Append("currency", paymentAuthRequest.Currency).
+		Append("currency", string(paymentAuthRequest.Currency)).
 		Append("posOrderId", paymentAuthRequest.PosOrderId).
 		Append("connectorName", paymentAuthRequest.ConnectorName).
 		Append("callbackUrl", paymentAuthRequest.CallbackUrl).
