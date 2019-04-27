@@ -21,7 +21,7 @@ func (paymentRefundRequest PaymentRefundRequest) ToPKIRequest() string {
 		Append("locale", paymentRefundRequest.Locale).
 		Append("conversationId", paymentRefundRequest.ConversationId).
 		Append("paymentTransactionId", paymentRefundRequest.PaymentTransactionId).
-		Append("price", util.FormatFloat(paymentRefundRequest.Price)).
+		Append("price", util.FormatPrimitiveFloat(paymentRefundRequest.Price)).
 		Append("ip", paymentRefundRequest.Ip).
 		Append("currency", paymentRefundRequest.Currency).
 		Append("reason", paymentRefundRequest.RefundReason).
