@@ -18,7 +18,7 @@ func TestMarketplacePaymentPreAuth(t *testing.T) {
 	request.Currency = TRY //TODO: constanta çıkılabilir
 	request.Installment = 1
 	request.BasketId = "B67832"
-	request.PaymentChannel = "WEB"   //TODO: constanta çıkılabilir
+	request.PaymentChannel = WEB
 	request.PaymentGroup = "PRODUCT" //TODO: constanta çıkılabilir
 
 	basketItem1 := BasketItem{Id: "BI101", Name: "Binocular", Category1: "Collectibles", Category2: "Accessories", ItemType: "PHYSICAL", Price: 0.3, SubMerchantKey: "ha3us4v5mk2652kkjk5728cc4407an", SubMerchantPrice: 0.27}
@@ -56,7 +56,7 @@ func TestStandardMerchantPaymentPreAuth(t *testing.T) {
 	request.Currency = TRY
 	request.Installment = 1
 	request.BasketId = "B67832"
-	request.PaymentChannel = "WEB"   //TODO: constanta çıkılabilir
+	request.PaymentChannel = WEB
 	request.PaymentGroup = "PRODUCT" //TODO: constanta çıkılabilir
 
 	basketItem1 := BasketItem{Id: "BI101", Name: "Binocular", Category1: "Collectibles", Category2: "Accessories", ItemType: "PHYSICAL", Price: 0.3}

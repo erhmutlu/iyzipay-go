@@ -19,3 +19,16 @@ const (
 	TR Locale = "tr"
 	EN Locale = "en"
 )
+
+type PaymentChannel string
+
+const (
+	MOBILE         PaymentChannel = "MOBILE"
+	WEB            PaymentChannel = "WEB"
+	MOBILE_WEB     PaymentChannel = "MOBILE_WEB"
+	MOBILE_IOS     PaymentChannel = "MOBILE_IOS"
+	MOBILE_ANDROID PaymentChannel = "MOBILE_ANDROID"
+	MOBILE_WINDOWS PaymentChannel = "MOBILE_WINDOWS"
+	MOBILE_TABLET  PaymentChannel = "MOBILE_TABLET"
+	MOBILE_PHONE   PaymentChannel = "MOBILE_PHONE"
+)

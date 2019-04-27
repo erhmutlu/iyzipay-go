@@ -18,7 +18,7 @@ func (paymentPreAuthRequest PaymentPreAuthRequest) ToPKIRequest() string {
 		Append("price", util.FormatPrimitiveFloat(paymentPreAuthRequest.Price)).
 		Append("paidPrice", util.FormatPrimitiveFloat(paymentPreAuthRequest.PaidPrice)).
 		Append("installment", util.FormatPrimitiveInt(paymentPreAuthRequest.Installment)).
-		Append("paymentChannel", paymentPreAuthRequest.PaymentChannel).
+		Append("paymentChannel", string(paymentPreAuthRequest.PaymentChannel)).
 		Append("basketId", paymentPreAuthRequest.BasketId).
 		Append("paymentGroup", paymentPreAuthRequest.PaymentGroup).
 		Append("paymentCard", paymentPreAuthRequest.PaymentCard.ToPKIRequest()).
