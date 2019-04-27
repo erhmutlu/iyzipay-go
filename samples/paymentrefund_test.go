@@ -11,7 +11,7 @@ import (
 func TestPaymentRefund(t *testing.T) {
 	options := RetrieveOptions()
 	request := request.PaymentRefundRequest{}
-	request.PaymentTransactionId = "12038280"
+	request.PaymentTransactionId = "12038286"
 	request.Price = 0.2
 	request.Ip = "127.0.0.1"
 	request.ConversationId = "conversationId"

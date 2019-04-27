@@ -20,7 +20,7 @@ func (paymentAuthRequest PaymentAuthRequest) ToPKIRequest() string {
 		Append("installment", util.FormatPrimitiveInt(paymentAuthRequest.Installment)).
 		Append("paymentChannel", string(paymentAuthRequest.PaymentChannel)).
 		Append("basketId", paymentAuthRequest.BasketId).
-		Append("paymentGroup", paymentAuthRequest.PaymentGroup).
+		Append("paymentGroup", string(paymentAuthRequest.PaymentGroup)).
 		Append("paymentCard", paymentAuthRequest.PaymentCard.ToPKIRequest()).
 		Append("buyer", paymentAuthRequest.Buyer.ToPKIRequest()).
 		Append("shippingAddress", paymentAuthRequest.ShippingAddress.ToPKIRequest()).

@@ -32,3 +32,11 @@ const (
 	MOBILE_TABLET  PaymentChannel = "MOBILE_TABLET"
 	MOBILE_PHONE   PaymentChannel = "MOBILE_PHONE"
 )
+
+type PaymentGroup string
+
+const (
+	PRODUCT      PaymentGroup = "PRODUCT"
+	LISTING      PaymentGroup = "LISTING"
+	SUBSCRIPTION PaymentGroup = "SUBSCRIPTION"
+)

@@ -13,7 +13,7 @@ func TestPaymentPostAuth(t *testing.T) {
 	request := request.PaymentPostAuthRequest{}
 	request.Locale = TR
 	request.ConversationId = "123456789abc"
-	request.PaymentId = "11361093"
+	request.PaymentId = "11361181"
 	request.PaidPrice = 1.2
 	request.Currency = TRY
 	request.Ip = "127.0.0.1"
