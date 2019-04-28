@@ -2,6 +2,7 @@ package security
 
 import (
 	"bytes"
+	"iyzipay-go/iyzipay/util"
 	"reflect"
 )
 
@@ -38,6 +39,29 @@ func (pkiRequest PKIRequest) AppendSlice(key string, pkiRequestItems interface{}
 				buffer.WriteString(pki)
 			} else {
 				buffer.WriteString(pki)
+			}
+		}
+		s := "[" + buffer.String() + "]"
+		return pkiRequest.Append(key, s)
+	}
+
+	return pkiRequest
+}
+
+func (pkiRequest PKIRequest) AppendIntSlice(key string, pkiRequestItems interface{}) PKIRequest {
+	if reflect.TypeOf(pkiRequestItems).Kind() == reflect.Slice {
+		slice := reflect.ValueOf(pkiRequestItems)
+
+		var buffer bytes.Buffer
+		for i := 0; i < slice.Len(); i++ {
+			item := slice.Index(i)
+			str := util.FormatPrimitiveInt(item.Interface().(int))
+
+			if i > 0 {
+				buffer.WriteString(", ")
+				buffer.WriteString(str)
+			} else {
+				buffer.WriteString(str)
 			}
 		}
 		s := "[" + buffer.String() + "]"

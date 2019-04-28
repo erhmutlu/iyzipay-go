@@ -26,5 +26,15 @@ func FormatInt(int *int) string {
 }
 
 func FormatPrimitiveInt(int int) string {
+	if int == 0 {
+		return ""
+	}
 	return strconv.Itoa(int)
+}
+
+func FormatPrimitiveBool(bool bool) string {
+	if !bool {
+		return ""
+	}
+	return "true"
 }

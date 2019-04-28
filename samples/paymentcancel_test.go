@@ -1,4 +1,4 @@
-package samples_test
+package samples
 
 import (
 	"github.com/stretchr/testify/assert"
@@ -11,7 +11,7 @@ import (
 func TestPaymentCancel(t *testing.T) {
 	options := RetrieveOptions()
 	request := request.PaymentCancelRequest{}
-	request.PaymentId = "11361291"
+	request.PaymentId = "11361631"
 	request.Ip = "127.0.0.1"
 	request.ConversationId = "conversationId"
 	request.Locale = TR

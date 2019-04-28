@@ -1,4 +1,4 @@
-package samples_test
+package samples
 
 import . "iyzipay-go/iyzipay/request/model"
 
