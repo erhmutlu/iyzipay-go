@@ -43,3 +43,15 @@ func TestCheckoutFormInitialize(t *testing.T) {
 	assert.Equal(t, "success", response.Meta.Status)
 	assert.Equal(t, "123456789abc", response.Meta.ConversationId.Data)
 }
+
+func TestCheckoutFormRetrieve(t *testing.T) {
+	options := RetrieveOptions()
+	request := request.CheckoutFormRequest{}
+	request.Locale = TR
+	request.ConversationId = "123456789abc"
+	request.Token = "0602ec47-a0ca-4acc-8362-3c42b348aac8"
+
+	response := client.CheckoutFormRetrieve(request, options)
+	assert.Equal(t, "success", response.Meta.Status)
+	assert.Equal(t, "123456789abc", response.Meta.ConversationId.Data)
+}

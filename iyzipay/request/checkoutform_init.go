@@ -49,6 +49,6 @@ func (checkoutFormInitializeRequest CheckoutFormInitializeRequest) ToPKIRequest(
 		Append("paymentWithNewCardEnabled", util.FormatPrimitiveBool(checkoutFormInitializeRequest.PaymentWithNewCardEnabled)).
 		Append("debitCardAllowed", util.FormatPrimitiveBool(checkoutFormInitializeRequest.DebitCardAllowed)).
 		ToString()
-	println(pki)
+
 	return pki
 }

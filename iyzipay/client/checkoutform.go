@@ -19,3 +19,16 @@ func CheckoutFormInitialize(checkoutFormInitializeRequest CheckoutFormInitialize
 		Post(options.BaseUrl + "/payment/iyzipos/checkoutform/initialize/auth/ecom")
 	return successResponse
 }
+
+func CheckoutFormRetrieve(checkoutFormRequest CheckoutFormRequest, options Options) CheckoutFormResultResponse {
+	successResponse := CheckoutFormResultResponse{}
+
+	resty.
+		SetDebug(options.DebugMode).
+		R().
+		SetHeaders(HttpHeaders(checkoutFormRequest, options)).
+		SetResult(&successResponse).
+		SetBody(checkoutFormRequest).
+		Post(options.BaseUrl + "/payment/iyzipos/checkoutform/auth/ecom/detail")
+	return successResponse
+}
