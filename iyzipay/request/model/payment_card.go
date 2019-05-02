@@ -1,8 +1,8 @@
 package model
 
 import (
-	. "iyzipay-go/iyzipay/security"
-	"iyzipay-go/iyzipay/util"
+	. "github.com/erhmutlu/iyzipay-go/iyzipay/security"
+	"github.com/erhmutlu/iyzipay-go/iyzipay/util"
 )
 
 type PaymentCard struct {

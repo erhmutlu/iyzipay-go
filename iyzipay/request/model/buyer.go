@@ -1,7 +1,7 @@
 package model
 
 import (
-	. "iyzipay-go/iyzipay/security"
+	. "github.com/erhmutlu/iyzipay-go/iyzipay/security"
 )
 
 type Buyer struct {

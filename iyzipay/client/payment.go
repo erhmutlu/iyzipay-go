@@ -2,9 +2,9 @@ package client
 
 import (
 	"github.com/go-resty/resty"
-	. "iyzipay-go/iyzipay/request"
-	. "iyzipay-go/iyzipay/request/model"
-	. "iyzipay-go/iyzipay/response"
+	. "github.com/erhmutlu/iyzipay-go/iyzipay/request"
+	. "github.com/erhmutlu/iyzipay-go/iyzipay/request/model"
+	. "github.com/erhmutlu/iyzipay-go/iyzipay/response"
 )
 
 func PaymentRetrieve(paymentRetrieveRequest PaymentRetrieveRequest, options Options) PaymentRetrieveResponse {

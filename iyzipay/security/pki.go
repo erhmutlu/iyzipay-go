@@ -2,7 +2,7 @@ package security
 
 import (
 	"bytes"
-	"iyzipay-go/iyzipay/util"
+	"github.com/erhmutlu/iyzipay-go/iyzipay/util"
 	"reflect"
 )
 

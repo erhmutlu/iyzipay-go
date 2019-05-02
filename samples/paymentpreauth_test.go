@@ -2,9 +2,9 @@ package samples
 
 import (
 	"github.com/stretchr/testify/assert"
-	"iyzipay-go/iyzipay/client"
-	. "iyzipay-go/iyzipay/request/model"
-	"iyzipay-go/iyzipay/request"
+	"github.com/erhmutlu/iyzipay-go/iyzipay/client"
+	. "github.com/erhmutlu/iyzipay-go/iyzipay/request/model"
+	"github.com/erhmutlu/iyzipay-go/iyzipay/request"
 	"testing"
 )
 

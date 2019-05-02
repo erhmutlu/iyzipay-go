@@ -1,8 +1,8 @@
 package response
 
 import (
-	. "iyzipay-go/iyzipay/request/model"
-	"iyzipay-go/iyzipay/response/nullable"
+	. "github.com/erhmutlu/iyzipay-go/iyzipay/request/model"
+	"github.com/erhmutlu/iyzipay-go/iyzipay/response/nullable"
 )
 
 type PaymentRetrieveResponse struct {

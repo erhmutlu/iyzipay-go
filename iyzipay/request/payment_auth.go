@@ -1,9 +1,9 @@
 package request
 
 import (
-	. "iyzipay-go/iyzipay/request/model"
-	. "iyzipay-go/iyzipay/security"
-	"iyzipay-go/iyzipay/util"
+	. "github.com/erhmutlu/iyzipay-go/iyzipay/request/model"
+	. "github.com/erhmutlu/iyzipay-go/iyzipay/security"
+	"github.com/erhmutlu/iyzipay-go/iyzipay/util"
 )
 
 type PaymentAuthRequest struct {

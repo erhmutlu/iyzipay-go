@@ -2,7 +2,7 @@ package samples
 
 import (
 	"github.com/stretchr/testify/assert"
-	"iyzipay-go/iyzipay/client"
+	"github.com/erhmutlu/iyzipay-go/iyzipay/client"
 	"testing"
 )
 

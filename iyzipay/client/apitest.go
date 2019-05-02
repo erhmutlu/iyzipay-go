@@ -2,8 +2,8 @@ package client
 
 import (
 	"github.com/go-resty/resty"
-	. "iyzipay-go/iyzipay/request/model"
-	. "iyzipay-go/iyzipay/response"
+	. "github.com/erhmutlu/iyzipay-go/iyzipay/request/model"
+	. "github.com/erhmutlu/iyzipay-go/iyzipay/response"
 	"log"
 )
 
