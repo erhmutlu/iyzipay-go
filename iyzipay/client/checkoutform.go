@@ -20,6 +20,19 @@ func CheckoutFormInitialize(checkoutFormInitializeRequest CheckoutFormInitialize
 	return successResponse
 }
 
+func CheckoutFormInitializePreAuth(checkoutFormInitializeRequest CheckoutFormInitializeRequest, options Options) CheckoutFormInitializeResponse {
+	successResponse := CheckoutFormInitializeResponse{}
+
+	resty.
+		SetDebug(options.DebugMode).
+		R().
+		SetHeaders(HttpHeaders(checkoutFormInitializeRequest, options)).
+		SetResult(&successResponse).
+		SetBody(checkoutFormInitializeRequest).
+		Post(options.BaseUrl + "/payment/iyzipos/checkoutform/initialize/preauth/ecom")
+	return successResponse
+}
+
 func CheckoutFormRetrieve(checkoutFormRequest CheckoutFormRequest, options Options) CheckoutFormResultResponse {
 	successResponse := CheckoutFormResultResponse{}
 

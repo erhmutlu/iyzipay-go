@@ -64,7 +64,7 @@ func TestStandardMerchantPaymentAuth(t *testing.T) {
 	basketItems := []BasketItem{basketItem1, basketItem2, basketItem3}
 	request.BasketItems = basketItems
 
-	paymentCard := PaymentCard{CardHolderName: "John Doe", CardNumber: "5528790000000008", ExpireYear: "2030", ExpireMonth: "12", Cvc: "123", RegisterCard: util.NewInt(0)}
+	paymentCard := PaymentCard{CardHolderName: "John Doe", CardNumber: "5528790000000008", ExpireYear: "2030", ExpireMonth: "12", Cvc: "123", RegisterCard: util.NewInt(1)}
 	request.PaymentCard = paymentCard
 
 	shippingAddress := Address{ContactName: "Jane Doe", City: "Istanbul", Country: "Turkey", Address: "iyziPark", ZipCode: "11111"}
